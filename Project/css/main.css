@@ -1,0 +1,160 @@
+:root{
+    --green: #3BE789;
+    --violet: #7F6EB2;
+    --dark: #282828;
+    --pink:  #FF69B4
+
+/* goi nhung mau thuong dung */
+}
+body{
+    height: 100vh;
+    overflow: hidden;
+    font-family: system-ui;
+    background-image: linear-gradient(to top right,var(--pink), var(--dark));
+}
+.card{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    border-radius: 30px;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    background-color: var(--dark);
+}
+.basicInf{
+    background-color: #ADD8E6;
+    border-radius: 30px;
+    padding: 25px;
+    position: relative;
+}
+/* tinh chinh title*/
+.title .category{
+    font-weight: bold;
+    font-size: x-large;
+    padding-bottom: 3px;
+}
+.title .info{
+    font-weight: 600px;
+    font-size: x-small;
+}
+.title .name{
+    font-weight: bold;
+    font-size: large;
+    padding-bottom: 3px;
+}
+.card .img{
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    /* tinh chinh anh*/
+}
+.card .img img{
+    width: 80%;
+    transform: scale(1) rotate(0deg);
+    transition: 0.5s;
+    display: none;
+    /* tinh chinh anh*/
+}
+.img input:checked ~ img{
+    display: block;
+}
+.card .img::before{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    content: '';
+    transform: translate(-50%,-50%);
+    background-color: #FFF8DC;
+    z-index: -2;
+    top: 50%;
+    left: 50%; 
+}
+.card .img::after{
+    position: absolute;
+    bottom: 0;
+    width: 70%;
+    height: 40px;
+    background-color: #000;
+    content: '';
+    right: 30px;
+    z-index: -1;
+    border-radius: 50%;
+    opacity: 0.2;
+    filter: blur(10px);
+    transition: 0.5s;
+}
+.img input{ 
+    position: absolute;
+    opacity: 0;
+}
+.colors{
+    display: flex;
+    font-size: x-small;
+    text-align: center;
+    font-weight: bold;
+}
+.colors label{
+    margin-right: 10px;
+
+}
+.colors .name{
+    margin-bottom: 5px;
+}
+.colors .ellipse{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.mores{
+    padding: 20px;
+}
+.mores .heart,
+.mores .price{
+    display: inline-block;
+}
+.mores .price{
+    float: right;
+    color: #eee;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.more .heart{
+    color: #9b9a9a;
+}
+.text-red{
+    color: #FFFAFA;
+}
+.addCard{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.addCard i{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--green);
+    color: #222;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    right: 90px;
+    bottom: -25px;
+    border: 5px solid var(--dark);
+    transition: 0.5s;
+    opacity: 0;
+    transform: translate(0,10px);
+}
+.card:hover .img img{
+    transform: scale(1.1) rotate(360deg) translate(10px, -10px);
+}
+card:hover .img img::after{
+    width: 90%;
+}
+.card:hover .addCard i{
+    opacity: 1;
+    transform: translate(0,0);
+}
