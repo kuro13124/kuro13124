@@ -1,0 +1,9 @@
+IT01|LG Tivi|Korea|1958|1000
+IT02|Sony Tivi|Japan|1960|80
+IT03|Samsung Tivi|Korea|1970|200
+IT04|Panasonic Tivi|Japan|2000|620
+IT05|Xiaomi Tivi|China|2009|190
+IT06|Jingzhan Tivi|China|2007|210
+
+
+

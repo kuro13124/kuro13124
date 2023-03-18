@@ -1,0 +1,6 @@
+ST01|LG OLED|Korea|webOS|2|2013|1000
+ST02|Sony Android|Japan|Android|2|2015|900
+ST03|Samsung Neo QLED|Korea|TizenOS|2|2021|920
+ST04|LG OLED C2|Korea|webOS|2|2022|800
+ST05|Sony Bravia X90J|Japan|Android|1|2022|1200
+ST06|TCL 6-series QLED|China|Android|1|2020|600
