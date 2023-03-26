@@ -78,7 +78,7 @@ public class ListTiviST {
 
         for (int i = 0; i < danhSach.size(); i++) {
             if (id.equals(danhSach.get(i).getMa())) {
-                System.out.print("---nhap du lieu moi---");
+                System.out.println("---nhap du lieu moi---");
                 System.out.print("Nhap ma tivi: "); String ma = sc.nextLine();
                 System.out.print("Nhap ten tivi: "); String ten = sc.nextLine();
                 System.out.print("Nhap xuat xu tivi: "); String xuatXu = sc.nextLine();
@@ -178,9 +178,9 @@ public class ListTiviST {
                 int namSx = Integer.parseInt(info[4].trim());
                 int hTrongkho = Integer.parseInt(info[5].trim());
                 double donGia = Double.parseDouble(info[6].trim());
-                int year = Integer.parseInt(info[7].trim());
+                int day = Integer.parseInt(info[7].trim());
                 int month = Integer.parseInt(info[8].trim());
-                int day = Integer.parseInt(info[9].trim());
+                int year = Integer.parseInt(info[9].trim());
 
                 
                 danhSach.add(new TiviST(ma, ten, xuatXu, heDieuHanh, namSx, hTrongkho,donGia,st.hien(day, month, year)));
