@@ -223,20 +223,21 @@ public class List {
                     System.out.println("Vui lòng nhập lại: ");
                 }
            }while(ds.get(i).getNgayNhap().compareTo(mn.ngayXuat)>0);
-                System.out.println("Nhập số lượng cần xuất kho: ");
+                System.out.print("Nhập số lượng cần xuất kho: ");
                 mn.soHang = sc.nextInt();
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 String nx = sdf.format(mn.ngayXuat);
                 String nn = sdf.format(ds.get(i).getNgayNhap());
                 mn.kq = (double)(mn.getSoHang()*1.1*ds.get(i).getDonGia());
-                System.out.println("Đại lý: "+mn.Agency+", Mã: "+ id +", Ngày nhập kho: "+nn+", Ngày xuất kho: "+nx+", Số lượng xuất kho: "+mn.getSoHang()+", Số hàng còn lại trong kho: "+(ds.get(i).gethTrongkho()-mn.getSoHang())+", Số tiền xuất hàng: "+mn.kq);
+                String ramdom = mn.randomAlphaNumeric(6);
+                System.out.println("Mã đơn hàng: "+ramdom+", Đại lý: "+mn.Agency+", Mã: "+ id +", Ngày nhập kho: "+nn+", Ngày xuất kho: "+nx+", Số lượng xuất kho: "+mn.getSoHang()+", Số hàng còn lại trong kho: "+(ds.get(i).gethTrongkho()-mn.getSoHang())+", Số tiền xuất hàng: "+mn.kq);
                 ds.get(i).sethTrongkho(ds.get(i).gethTrongkho()-mn.getSoHang());
-                mg.add(new Manager(mn.ngayXuat, mn.Agency,mn.soHang,mn.kq));
+                mg.add(new Manager(mn.ngayXuat, mn.Agency,mn.soHang,mn.kq,ramdom));
                 
                     try {
             FileWriter fw = new FileWriter("phieuxuat.txt",true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("Đại lý: "+mn.Agency+", Mã: "+ id +", Ngày nhập kho: "+nn+", Ngày xuất kho: "+nx+", Số lượng xuất kho: "+mn.getSoHang()+", Số hàng còn lại trong kho: "+(ds.get(i).gethTrongkho()-mn.getSoHang())+", Số tiền xuất hàng: "+mn.kq);
+            bw.write("Mã đơn hàng: "+ramdom+", Đại lý: "+mn.Agency+", Mã: "+ id +", Ngày nhập kho: "+nn+", Ngày xuất kho: "+nx+", Số lượng xuất kho: "+mn.getSoHang()+", Số hàng còn lại trong kho: "+(ds.get(i).gethTrongkho()-mn.getSoHang())+", Số tiền xuất hàng: "+mn.kq);
             bw.newLine();
             bw.close();
            } catch (Exception e){
