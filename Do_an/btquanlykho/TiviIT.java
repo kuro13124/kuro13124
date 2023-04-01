@@ -24,6 +24,8 @@ public class TiviIT extends Tivi{
         cl.set(year, month-1, day);
         return ngayNhap = cl.getTime();
     }
+
+    @Override
    public void nhap(){
                 int day,month,year;
                 Scanner sc = new Scanner(System.in);

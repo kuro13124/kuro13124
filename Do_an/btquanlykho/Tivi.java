@@ -82,4 +82,6 @@ public class Tivi implements Serializable {
     public Date hien(int day,int month,int year){ 
         return ngayNhap;      
     }
+    public void nhap(){      
+    }
 }

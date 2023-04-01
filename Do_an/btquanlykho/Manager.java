@@ -5,18 +5,16 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
-public class Manager {
-
-    private static final String alpha = "abcdefghijklmnopqrstuvwxyz"; // a-z
-    private static final String digits = "0123456789"; // 0-9   
-    private static Random generator = new Random();
-    private static final String ALPHA_NUMERIC = alpha + digits;
-    
+public class Manager {  
     public Date ngayXuat;
     public String Agency;
     public int soHang;
     public double kq;
     private String ramdom;
+    private static final String alpha = "abcdefghijklmnopqrstuvwxyz"; // a-z
+    private static final String digits = "0123456789"; // 0-9   
+    private static Random generator = new Random();
+    private static final String ALPHA_NUMERIC = alpha + digits;
     public Manager(){
     }
 
