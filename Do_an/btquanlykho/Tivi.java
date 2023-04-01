@@ -3,8 +3,6 @@ package btquanlykho;
 
 import java.io.Serializable;
 import java.util.Date;
-
-
 public class Tivi implements Serializable {
     public String ma;
     public String ten;

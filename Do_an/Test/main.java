@@ -2,98 +2,52 @@
 package Test;
 
 import btquanlykho.List;
-import btquanlykho.Tivi;
 import btquanlykho.TiviIT;
 import btquanlykho.TiviST;
 import java.io.File;
 import java.util.Scanner;
 
 public class main{
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) {       
         Scanner sc = new Scanner(System.in);
         List ds = new List();
-        Tivi it = new TiviIT();
-        Tivi st = new TiviST();
+        TiviIT it = new TiviIT();
+        TiviST st = new TiviST();
         int luaChon = 0;
         do{
-            System.out.println("MENU-------------------------------------------------");
-            System.out.println("KHO Tivi---------------------------------------------");
-            System.out.println("Vui long chon chuc nang -----------------------------");
-            System.out.println("---1.them san pham loai Tivi Smart-------------------");
-            System.out.println("---2.them san pham loai Tivi Internet----------------");
-            System.out.println("---3.in danh sach san pham  trong kho ra man hinh----");
-            System.out.println("---4.dem so luong san pham trong kho-----------------");
-            System.out.println("---5.tim kiem ten san pham trong kho-----------------");
-            System.out.println("---6.sap xep san pham theo so luong giam dan---------");
-            System.out.println("---7.Sua thong tin san pham--------------------------");
-            System.out.println("---8.Xoa thong tin san pham--------------------------");
-            System.out.println("---9.Luu file ---------------------------------------");
-            System.out.println("---10.doc file Tivi Smart----------------------------");
-            System.out.println("---11.doc file Tivi Internet-------------------------");
-            System.out.println("---12.phieu xuat hang--------------------------------");
-            System.out.println("---0.thoat chuong trinh------------------------------");
- 
+            System.out.println("---------------------MENU----------------------------");
+            System.out.println("----------------Quản lý KHO Tivi---------------------");
+            System.out.println("-  Vui lòng chọn chức năng                          -");
+            System.out.println("-  1.Nhập sản phẩm loại Tivi Smart                  -");
+            System.out.println("-  2.Nhập sản phẩm loại Tivi Internet               -");
+            System.out.println("-  3.In danh sách hiển thị sản phẩm trong kho       -");
+            System.out.println("-  4.Đếm số lượng sản phẩm trong kho                -");
+            System.out.println("-  5.Tìm kiếm sản phẩm theo tên                     -");
+            System.out.println("-  6.Sắp xếp sản phẩm theo số lượng                 -");
+            System.out.println("-  7.Sửa thông tin sản phẩm                         -");
+            System.out.println("-  8.Xóa thông tin sản phâm                         -");
+            System.out.println("-  9.Lưu danh sách vào file                         -");
+            System.out.println("-  10.Đọc file danh sách Tivi Smart                 -");
+            System.out.println("-  11.Đọc file danh sách Tivi Internet              -");
+            System.out.println("-  12.Phiếu xuất hàng                               -");
+            System.out.println("-  13.In danh sách Đại lý đã lấy hàng từ kho        -");
+            System.out.println("-  0.Thoát chương trình                             -");
+            System.out.println("-----------------------------------------------------");
             luaChon = sc.nextInt();
             sc.nextLine();
             switch(luaChon){
             case 1:
-            {      
-                System.out.print("Nhap ma tivi: "); String ma = sc.nextLine();
-                System.out.print("Nhap ten tivi: "); String ten = sc.nextLine();
-                System.out.print("Nhap xuat xu tivi: "); String xuatXu = sc.nextLine();
-                System.out.print("Nhap he dieu hanh cua tivi: "); String heDieuHanh = sc.nextLine();               
-                System.out.print("Nhap namsx tivi: "); int namSx = sc.nextInt();
-                if(namSx<0){
-                    System.out.print("Vui long nhap lai nam san xuat cua san pham : ");
-                    namSx = sc.nextInt();    
-                }
-                System.out.println("Nhap vao ngay nhap kho: ");
-                    System.out.print("ngay:"); int day = sc.nextInt();
-                    System.out.print("thang:"); int month = sc.nextInt();
-                    System.out.print("nam:"); int year = sc.nextInt();
-                    st.hien(day, month, year);
-                System.out.print("Nhap so hang trong kho tivi: "); int hTrongkho = sc.nextInt();
-                if(hTrongkho<0){
-                    System.out.print("Vui long nhap lai so luong cua san pham : ");
-                    hTrongkho = sc.nextInt();    
-                }
-                System.out.print("Nhap don gia cua san pham: "); double donGia = sc.nextDouble();
-                if(donGia<0){
-                    System.out.print(" Vui long nhap lai don gia cua san pham: ");
-                    donGia = sc.nextDouble();    
-                }
-                Tivi tvst = new TiviST(ma,ten,xuatXu,heDieuHanh,namSx,hTrongkho,donGia,st.hien(day, month, year));
-                ds.add(tvst);
+            {                      
+                st = new TiviST();
+                st.nhap();
+                ds.add(st);
                 break;
             }
             case 2:
             {      
-                System.out.print("Nhap ma tivi: "); String ma = sc.nextLine();
-                System.out.print("Nhap ten tivi: "); String ten = sc.nextLine();
-                System.out.print("Nhap xuat xu tivi: "); String xuatXu = sc.nextLine();               
-                System.out.print("Nhap namsx tivi: "); int namSx = sc.nextInt();
-                if(namSx<0){
-                    System.out.print("Vui long nhap lai nam san xuat cua san pham : ");
-                    namSx = sc.nextInt();    
-                }
-                System.out.println("Nhap vao ngay nhap kho: ");
-                    System.out.print("ngay:"); int day = sc.nextInt();
-                    System.out.print("thang:"); int month = sc.nextInt();
-                    System.out.print("nam:"); int year = sc.nextInt();
-                    it.hien(day, month, year);
-                System.out.print("Nhap so hang trong kho tivi: "); int hTrongkho = sc.nextInt();
-                if(hTrongkho<0){
-                    System.out.print("Vui long nhap lai so luong cua san pham : ");
-                    hTrongkho = sc.nextInt();    
-                }
-                System.out.print("Nhap don gia cua san pham: "); double donGia = sc.nextDouble();
-                if(donGia<0){
-                    System.out.print(" Vui long nhap lai don gia cua san pham: ");
-                    donGia = sc.nextDouble();    
-                }
-                Tivi tvit = new TiviIT(ma, ten, namSx, xuatXu, hTrongkho, donGia, it.hien(day, month, year));
-                ds.add(tvit);
+                it = new TiviIT();
+                it.nhap();
+                ds.add(it);
                 break;
             }
             case 3:{
@@ -101,12 +55,12 @@ public class main{
                 break;
             }
             case 4:{
-                System.out.println("so luong loai san pham trong kho :" + ds.count());
+                System.out.println("Số lượng sản phẩm trong kho: " + ds.count());
                 break;
             }
             case 5:{
-                System.out.println("Nhap ten tivi: "); String ten = sc.nextLine();
-                System.out.println("ket qua tim kiem trong kho");
+                System.out.println("Nhập Tên Tivi: "); String ten = sc.nextLine();
+                System.out.println("--Kết quản tìm kiếm---");
                 ds.search(ten);
                 break;
             }
@@ -124,30 +78,34 @@ public class main{
                 break;
             }
             case 9:{
-                System.out.print("nhap ten file muon luu : ");
+                System.out.print("Nhập tên file muốn lưu: ");
                 String tenfilel = sc.nextLine();
                 File fl = new File(tenfilel);
                 ds.savefile(fl);
                 break;
             }
             case 10:{
-                System.out.print("nhap ten file muon doc : ");
+                System.out.print("Nhập tên file muốn đọc: ");
                 String tenfiled = sc.nextLine();
                 File fd = new File(tenfiled);
                 ds.readfiles(fd);
-                System.out.println("doc file thanh cong");
+                System.out.println("---Đọc file thành công---");
                 break;
-            }
+                }          
             case 11:{
-                System.out.print("nhap ten file muon doc : ");
+                System.out.print("Nhập tên file muốn đọc: ");
                 String tenfiled = sc.nextLine();
                 File fd = new File(tenfiled);
                 ds.readfilei(fd);
-                System.out.println("doc file thanh cong");
+                System.out.println("---Đọc file thành công---");
                 break;
             }
             case 12:{
                 ds.du();
+                break;
+            }
+            case 13:{
+                ds.displayMa();
                 break;
             }
             }   

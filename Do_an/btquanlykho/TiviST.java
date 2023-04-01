@@ -5,36 +5,25 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
-
-
-
-
 public class TiviST extends Tivi {
-
     String heDieuHanh;
     public TiviST() {
     }
-
     public TiviST(String ma, String ten, String xuatXu,String heDieuHanh, int namSx, int hTrongkho,double donGia,Date ngayNhap){
         super(ma, ten, namSx, xuatXu, hTrongkho,donGia,ngayNhap);
         this.heDieuHanh = heDieuHanh;
     }
-
-
     public String getHeDieuHanh() {
         return heDieuHanh;
     }
-
     public void setHeDieuHanh(String heDieuHanh) {
         this.heDieuHanh = heDieuHanh;
     }
-
-
     @Override
     public String toString(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String nnst = sdf.format(ngayNhap);
-        return "TiviST " + "ma=" + ma + ", ten=" + ten + ", xuatXu=" + xuatXu + ", he dieu hanh=" + heDieuHanh +", namsx =" + namSx + ", hTrongkho=" + hTrongkho+", don gia="+donGia+", ngay nhap kho="+nnst;
+        return "TiviST " + "Mã: " + ma + ", Tên: " + ten + ", Xuất xứ: " + xuatXu + ", Hệ điều hanh: " + heDieuHanh +", Năm sản xuất: " + namSx + ", Số lượng: " + hTrongkho+", Đơn giá: "+donGia+", Ngày nhập: "+nnst;
     }
     @Override
     public Date hien(int day,int month,int year){
@@ -42,33 +31,41 @@ public class TiviST extends Tivi {
         cl.set(year, month-1, day);
         return ngayNhap = cl.getTime();
     }
-        public void nhap(){
+    public void nhap(){
+                int day,month,year;
                 Scanner sc = new Scanner(System.in);
-                System.out.print("Nhap ma tivi: ");  ma = sc.nextLine();
-                System.out.print("Nhap ten tivi: "); ten = sc.nextLine();
-                System.out.print("Nhap xuat xu tivi: "); xuatXu = sc.nextLine();
-                System.out.print("Nhap he dieu hanh cua tivi: ");heDieuHanh = sc.nextLine();
-                
-                System.out.print("Nhap namsx tivi: ");namSx = sc.nextInt();
-                if(namSx<0){
-                    System.out.print(" Vui long nhap lai nam san xuat cua san pham: ");
-                    namSx = sc.nextInt();    
+                System.out.print("Nhập Mã Tivi: ");  ma = sc.nextLine();
+                System.out.print("Nhập Tên Tivi: "); ten = sc.nextLine();
+                System.out.print("Nhập xuất xứ Tivi: "); xuatXu = sc.nextLine();
+                System.out.print("Nhập hệ điều hành Tivi: ");heDieuHanh = sc.nextLine();  
+                do{
+                    System.out.print("Nhập năm sản xuất Tivi: ");namSx = sc.nextInt();
+                    if(namSx<1955){
+                        System.out.println("Vui lòng nhập lại: ");   
                 }
-                System.out.println("Nhap vao ngay nhap kho: ");
-                System.out.print("ngay:"); int day = sc.nextInt();
-                System.out.print("thang:"); int month = sc.nextInt();
-                System.out.print("nam:"); int year = sc.nextInt();
+                }while(namSx<1955);
+                System.out.println("Nhập ngày nhập kho Tivi: ");
+                do{
+                System.out.print("Ngày: "); day = sc.nextInt();
+                System.out.print("Tháng: "); month = sc.nextInt();
+                System.out.print("Năm: "); year = sc.nextInt();
+                if(day<0||month <0||year<0||day>31||month>12){
+                    System.out.println("Vui lòng nhập lại");
+                }
+                }while(day<0||month <0||year<0||day>31||month>12);
                 hien(day, month, year);
-                System.out.print("Nhap so hang trong kho tivi: ");hTrongkho = sc.nextInt();
+                do{
+                System.out.print("Nhập số hàng trong kho Tivi: ");hTrongkho = sc.nextInt();
                 if(hTrongkho<0){
-                    System.out.print(" Vui long nhap lai so luong cua san pham: ");
-                    hTrongkho = sc.nextInt();    
+                    System.out.print("Vui lòng nhập lại: ");   
                 }
-                System.out.print("Nhap don gia cua san pham: "); donGia = sc.nextDouble();
+                }while(hTrongkho<0);
+                do{
+                System.out.print("Nhập đơn giá của sản phẩm: "); donGia = sc.nextDouble();
                 if(donGia<0){
-                    System.out.print(" Vui long nhap lai don gia cua san pham: ");
-                    donGia = sc.nextDouble();    
+                    System.out.print("Vui lòng nhập lại: ");    
                 }
+                }while(donGia<0);
         }
 }  
 
