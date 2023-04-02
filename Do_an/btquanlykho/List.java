@@ -194,7 +194,7 @@ public class List {
             }catch (Exception e){
         }
     }
-        //10.nhap vao ngay du kiem xuat kho va so luong xuat kho va so luong con lai cua san pham
+       //10.nhap vao ngay du kiem xuat kho va so luong xuat kho va so luong con lai cua san pham
        public void du(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập Mã sản phẩm cần xuất kho: ");
@@ -237,7 +237,7 @@ public class List {
                     try {
             FileWriter fw = new FileWriter("phieuxuat.txt",true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("Mã đơn hàng: "+ramdom+", Đại lý: "+mn.Agency+", Mã: "+ id +", Ngày nhập kho: "+nn+", Ngày xuất kho: "+nx+", Số lượng xuất kho: "+mn.getSoHang()+", Số hàng còn lại trong kho: "+(ds.get(i).gethTrongkho()-mn.getSoHang())+", Số tiền xuất hàng: "+mn.kq);
+            bw.write("Mã đơn hàng: "+ramdom+", Đại lý: "+mn.Agency+", Mã: "+ id +", Ngày nhập kho: "+nn+", Ngày xuất kho: "+nx+", Số lượng xuất kho: "+mn.getSoHang()+", Số hàng còn lại trong kho: "+ds.get(i).gethTrongkho()+", Số tiền xuất hàng: "+mn.kq);
             bw.newLine();
             bw.close();
            } catch (Exception e){
