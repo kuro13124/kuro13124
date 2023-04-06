@@ -27,7 +27,13 @@ public class TiviIT extends Tivi{
 
     @Override
    public void nhap(){
+                java.util.Date date = new java.util.Date();
+                Calendar cl = Calendar.getInstance();
+                date = cl.getTime();
+                ngayNhap = cl.getTime();
+                
                 int day,month,year;
+                
                 Scanner sc = new Scanner(System.in);
                 System.out.print("Nhập Mã Tivi: ");  ma = sc.nextLine();
                 System.out.print("Nhập Tên Tivi: "); ten = sc.nextLine();
@@ -39,6 +45,7 @@ public class TiviIT extends Tivi{
                 }
                 }while(namSx<1955);
                 System.out.println("Nhập ngày nhập kho Tivi: ");
+            do{
                 do{
                 System.out.print("Ngày: "); day = sc.nextInt();
                 System.out.print("Tháng: "); month = sc.nextInt();
@@ -48,6 +55,10 @@ public class TiviIT extends Tivi{
                 }
                 }while(day<0||month <0||year<0||day>31||month>12);
                 hien(day, month, year);
+                if(ngayNhap.compareTo(date)>0){
+                    System.out.println("nhap lai");
+                }
+            }while(ngayNhap.compareTo(date)>0);
                 do{
                 System.out.print("Nhập số hàng trong kho Tivi: ");hTrongkho = sc.nextInt();
                 if(hTrongkho<0){
