@@ -1,0 +1,57 @@
+package lap3;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class OrderDetail {
+	public int quatity;
+	public Product product;
+	
+	private ArrayList<OrderDetail> o;
+	public OrderDetail() {
+		this.o = new ArrayList<>();
+	}
+	public OrderDetail(ArrayList<OrderDetail> o) {
+		this.o = o;
+	}
+	public double calcTotalPrice() {
+		double ttt;
+		return ttt = quatity * product.price;		
+	}
+	@Override
+	public String toString() {
+		
+		return "soluong" + quatity + "gia"+product.price;
+	}
+	public int getQuatity() {
+		return quatity;
+	}
+	public void setQuatity(int quatity) {
+		this.quatity = quatity;
+	}
+	public OrderDetail(Product product,int quantity) {
+		// TODO Auto-generated constructor stub
+		this.product = product;
+		this.quatity = quantity;
+	}
+	public void add(OrderDetail orderDetail) {
+		this.o.add(orderDetail);
+		
+	}
+
+	public void nhap() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("nhap so luong");
+		quatity = sc.nextInt();
+		
+			
+	}
+	
+		
+	public void display() {
+		for (OrderDetail orderDetail : o) {
+			System.out.print(orderDetail);
+		}
+	}
+	
+}
